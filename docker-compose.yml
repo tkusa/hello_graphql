@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+    app:
+        container_name: graphql
+        tty: true
+        build: 
+            context: .docker/express
+        image: app
+        ports:
+            - '3000:3000'
+            - '8080:8080'
+        working_dir: /app
+        environment:
+            NODE_ENV: debug
+        volumes:
+            - ./src:/app
+
+        
